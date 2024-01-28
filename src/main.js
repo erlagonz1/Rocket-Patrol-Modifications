@@ -1,3 +1,9 @@
+// Eric Gonzalez
+// Rocket Patrol 20p
+// time spend on project (the mods): 
+//
+//
+
 let config = {
     type: Phaser.AUTO,
     width: 640,
