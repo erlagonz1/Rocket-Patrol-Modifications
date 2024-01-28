@@ -182,6 +182,14 @@ class Play extends Phaser.Scene {
     shipExplode(ship) {
         // temporarily hide ship
         ship.alpha = 0
+        
+        //failed particle emitter attempt
+        // let particles = this.add.particles('explosion')
+        // let emitter = particles.createEmitter()
+        // emitter.setPosition(ship.x, ship.y)
+        // emitter.setSpeed(200)
+        // emitter.setBlendMode(Phaser.setBlendModes.ADD)
+
         // create explosion sprite at ship's position
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
         boom.anims.play('explode')             // play explode animation
