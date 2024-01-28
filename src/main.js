@@ -1,6 +1,6 @@
 // Eric Gonzalez
 // Rocket Patrol: Refined Edition
-// Time spent on project (the mods): 4 hours
+// Time spent on project (the mods): 5 hours
 // Mods completed (with comments in the code too){
 //     Create a new enemy Spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (5)
 //     Implement a new timing/scoring mechanism that adds time to the clock for successful hits and subtracts time for misses (5)
