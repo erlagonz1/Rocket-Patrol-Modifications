@@ -98,6 +98,19 @@ class Play extends Phaser.Scene {
 
         this.starfield.tilePositionX -= 4
 
+        //implement mouse input, it needs to be in this scene to use this.input.x
+        if(this.input.x <= this.p1Rocket.x && this.input.x >= borderUISize) {
+            keyLEFT.isDown = true
+        }
+        
+        if(this.input.x > this.p1Rocket.x && this.input.x <= game.config.width - borderUISize) {
+            keyRIGHT.isDown = true
+        }
+
+        //implement mouse click to fire
+        this.input.on('pointerdown', this.clicked)
+        
+
         if(!this.gameOver) {               
             this.p1Rocket.update()         // update rocket sprite
             this.ship01.update()           // update spaceships (x3)
@@ -150,6 +163,11 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or <- for Menu', timeConfig).setOrigin(0.5)
             this.gameOver = true
         }
+
+        //reset keyLEFT, keyRIGHT and click booleans
+        keyLEFT.isDown = false
+        keyRIGHT.isDown = false
+        click = false
     }
 
     checkCollision(rocket, ship) {
@@ -183,5 +201,9 @@ class Play extends Phaser.Scene {
 
       subTime() {
         this.initialTime -= 1
+      }
+
+      clicked() {
+        click = true
       }
 }
