@@ -51,10 +51,10 @@ class Play extends Phaser.Scene {
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig)
 
+        this.highScoreText = this.add.text(borderUISize * 10 + borderPadding * 2, borderUISize + borderPadding*2, highScore, scoreConfig)
 
         // GAME OVER flag
         this.gameOver = false
-
 
         //display time
         this.initialTime = game.settings.gameTimer/1000
@@ -78,6 +78,7 @@ class Play extends Phaser.Scene {
             callbackScope: this,
             loop: true,
         })
+
     }
 
     update() {
@@ -200,7 +201,11 @@ class Play extends Phaser.Scene {
         })
 
         this.p1Score += ship.points
+        if(this.p1Score >= highScore) {
+            highScore = this.p1Score
+        }
         this.scoreLeft.text = this.p1Score
+        this.highScoreText.text = highScore
         this.sound.play('sfx-explosion')
 
         //add time when we land a hit
