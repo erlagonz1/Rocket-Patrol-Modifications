@@ -20,3 +20,6 @@ let borderPadding = borderUISize / 3
 // reserve keyboard bindings
 let keyFIRE, keyRESET, keyLEFT, keyRIGHT
 
+// subtraction variable for time when rocket misses
+let miss = false
+
